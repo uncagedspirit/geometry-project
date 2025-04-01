@@ -1,0 +1,6 @@
+for each shape, eg if i get a circle, 
+pass the shape as param to the function, eg
+
+rotate(Shape shape_name, double rotationAngle, char rotationAxis){
+
+}
