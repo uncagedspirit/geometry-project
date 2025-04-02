@@ -16,9 +16,9 @@ typedef std::array<Point3D, 2> TwoPointsArray3D;
 typedef std::array<Point3D, 3> ThreePointsArray3D;
 
 //dynamic sized points vector for 2d
-typedef std::vector<Point2D> PointArray2D;
+typedef std::vector<Point2D> PointVector2D;
 
 //dynamic sized points vector for 3d
-typedef std::vector<Point3D> PointArray3D;
+typedef std::vector<Point3D> PointVector3D;
 
 #endif

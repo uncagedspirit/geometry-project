@@ -1,9 +1,11 @@
 #ifndef LINE2D_H
 #define LINE2D_H
 
+#include "shape.h"
 #include "point2d.h"
+#include <fstream>
 
-class Line2D {
+class Line2D  {
 private:
     Point2D start, end;
 
@@ -18,6 +20,8 @@ public:
     // Setters
     void setStart(const Point2D& start);
     void setEnd(const Point2D& end);
+
+    void savePointsToFile(const std::string& filename, bool append = false) ;
 };
 
 #endif

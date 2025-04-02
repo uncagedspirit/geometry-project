@@ -4,3 +4,9 @@ pass the shape as param to the function, eg
 rotate(Shape shape_name, double rotationAngle, char rotationAxis){
 
 }
+
+
+//LATER UPDATE
+
+
+just transform logic for each shape if matrix is common or just override transform class methods foe these

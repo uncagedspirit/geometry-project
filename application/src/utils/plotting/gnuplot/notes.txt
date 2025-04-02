@@ -1,0 +1,3 @@
+take the file .dat given by filehandler function of geometry module here
+
+create some logic and plot the points from that given file here
