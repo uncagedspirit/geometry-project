@@ -5,7 +5,7 @@
 #include "point2d.h"
 #include <fstream>
 
-class Line2D  {
+class Line2D : public Shape {
 private:
     Point2D start, end;
 
@@ -21,7 +21,8 @@ public:
     void setStart(const Point2D& start);
     void setEnd(const Point2D& end);
 
-    void savePointsToFile(const std::string& filename, bool append = false) ;
+    // Override the savePointsToFile method from shape class
+    void savePointsToFile(const std::string& filename, bool append = false) override;
 };
 
 #endif
