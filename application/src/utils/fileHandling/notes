@@ -1,0 +1,12 @@
+create .dat files here (or maybe anywhere feasible) by the shapes
+
+only create files and (maybe)points in them
+
+eg data.dat
+
+return these files
+
+these might be used by gnuplot plotter
+or the stl filemaker to make stl files
+
+thisway we can use the same files without additional logics

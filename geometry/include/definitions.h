@@ -21,3 +21,4 @@ typedef std::vector<Point2D> PointArray2D;
 //dynamic sized points vector for 3d
 typedef std::vector<Point3D> PointArray3D;
 
+#endif

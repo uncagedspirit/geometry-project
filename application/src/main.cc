@@ -1,0 +1,22 @@
+#include <iostream>
+#include "inputHandler.h"
+#include "line2d.h"
+#include "line3d.h"
+
+int main() {
+    std::cout << "Testing 2D Line Input\n";
+    TwoPointsArray2D points2D = InputHandler::getInput(TwoPointsArray2D());
+    Line2D line2D;
+    line2D.setStart(points2D[0]);
+    line2D.setEnd(points2D[1]);
+    std::cout << "2D Line Created!\n";
+
+    std::cout << "\nTesting 3D Line Input\n";
+    TwoPointsArray3D points3D = InputHandler::getInput(TwoPointsArray3D());
+    Line3D line3D;
+    line3D.setStart(points3D[0]);
+    line3D.setEnd(points3D[1]);
+    std::cout << "3D Line Created!\n";
+
+    return 0;
+}
