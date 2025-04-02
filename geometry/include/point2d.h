@@ -17,4 +17,4 @@ public:
     void setY(double y);
 };
 
-#endif // POINT2D_H
+#endif 
