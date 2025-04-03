@@ -26,10 +26,15 @@ int main() {
     // std::cout << "Circle Created!\n";
 
 //rectangle input test
-    std::cout << "Testing Rectangle Input\n";
-    Rectangle rectangle = InputHandler::getInput(Rectangle());
-    std::cout << "Rectangle Created!\n";
+    // std::cout << "Testing Rectangle Input\n";
+    // Rectangle rectangle = InputHandler::getInput(Rectangle());
+    // std::cout << "Rectangle Created!\n";
 
+
+//square input test
+    std::cout << "Testing Square Input\n";
+    Square square = InputHandler::getInput(Square());
+    std::cout << "Square Created!\n";
 
     return 0;
 }

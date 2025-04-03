@@ -100,6 +100,18 @@ Rectangle InputHandler::getInput(Rectangle) {
     return Rectangle(bottomLeft, width, height);
 }
 
+Square InputHandler::getInput(Square) {
+    std::cout << "Enter bottom-left corner coordinates: ";
+    Point2D bottomLeft = getInput(Point2D());
+
+    double side;
+    std::cout << "Enter side length: ";
+    std::cin >> side;
+
+    return Square(bottomLeft, side);
+}
+
+
 
 
 

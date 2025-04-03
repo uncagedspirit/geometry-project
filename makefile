@@ -15,7 +15,7 @@ LIBRARY_PATH = -L$(LIB_DIR) -lgeometry
 
 # Object files
 OBJECTS = $(BIN_DIR)/point2d.o $(BIN_DIR)/point3d.o $(BIN_DIR)/line2d.o $(BIN_DIR)/line3d.o $(BIN_DIR)/circle.o \
-		  $(BIN_DIR)/rectangle.o
+		  $(BIN_DIR)/rectangle.o $(BIN_DIR)/square.o
 APP_OBJECTS = $(APP_BIN)/main.o $(APP_BIN)/inputHandler.o
 
 # Ensure directories exist
@@ -40,6 +40,9 @@ $(BIN_DIR)/circle.o: $(SRC_DIR)/shapes/curves/2d/circle.cc
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 $(BIN_DIR)/rectangle.o: $(SRC_DIR)/shapes/polygons/2d/rectangle.cc
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BIN_DIR)/square.o: $(SRC_DIR)/shapes/polygons/2d/square.cc
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 $(APP_BIN)/inputHandler.o: $(APP_SRC)/utils/inputHandler/inputHandler.cc
