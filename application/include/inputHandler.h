@@ -4,6 +4,7 @@
 #include <iostream>
 #include "definitions.h"
 #include "circle.h"
+#include "rectangle.h"
 
 class InputHandler {
 public:
@@ -21,8 +22,9 @@ public:
     static PointVector2D getInput(const PointVector2D&, int numPoints);
     static PointVector3D getInput(const PointVector3D&, int numPoints);
 
-    //circle
+    //2d shapes
     static Circle getInput(Circle);
+    static Rectangle getInput(Rectangle);
 };
 
 #endif  

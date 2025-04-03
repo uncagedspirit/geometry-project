@@ -88,6 +88,18 @@ Circle InputHandler::getInput(Circle) {
     return Circle(center, radius);
 }
 
+//rectangle input
+Rectangle InputHandler::getInput(Rectangle) {  
+    std::cout << "Enter bottom left corner coordinates: ";
+    Point2D bottomLeft = InputHandler::getInput(Point2D());  
+
+    double width, height;
+    std::cout << "Enter width and height: ";
+    std::cin >> width >> height;
+
+    return Rectangle(bottomLeft, width, height);
+}
+
 
 
 
