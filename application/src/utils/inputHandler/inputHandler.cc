@@ -57,8 +57,8 @@ ThreePointsArray3D InputHandler::getInput(const ThreePointsArray3D&) {
 }
 
 // Dynamic-sized 2D points array
-PointArray2D InputHandler::getInput(const PointArray2D&, int numPoints) {
-    PointArray2D points(numPoints);
+PointVector2D InputHandler::getInput(const PointVector2D&, int numPoints) {
+    PointVector2D points(numPoints);
     for (int i = 0; i < numPoints; ++i) {
         std::cout << "Enter coordinates for point " << i + 1 << ": ";
         points[i] = getInput(Point2D());
@@ -67,11 +67,28 @@ PointArray2D InputHandler::getInput(const PointArray2D&, int numPoints) {
 }
 
 // Dynamic-sized 3D points array
-PointArray3D InputHandler::getInput(const PointArray3D&, int numPoints) {
-    PointArray3D points(numPoints);
+PointVector3D InputHandler::getInput(const PointVector3D&, int numPoints) {
+    PointVector3D points(numPoints);
     for (int i = 0; i < numPoints; ++i) {
         std::cout << "Enter coordinates for point " << i + 1 << ": ";
         points[i] = getInput(Point3D());
     }
     return points;
 }
+
+// Circle input
+Circle InputHandler::getInput(Circle) { 
+    std::cout << "Enter circle center coordinates: ";
+    Point2D center = InputHandler::getInput(Point2D());  
+
+    double radius;
+    std::cout << "Enter radius: ";
+    std::cin >> radius;
+
+    return Circle(center, radius);
+}
+
+
+
+
+

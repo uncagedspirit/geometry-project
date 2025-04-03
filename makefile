@@ -14,7 +14,7 @@ LDFLAGS = -shared -o $(LIB_DIR)/libgeometry.so
 LIBRARY_PATH = -L$(LIB_DIR) -lgeometry
 
 # Object files
-OBJECTS = $(BIN_DIR)/point2d.o $(BIN_DIR)/point3d.o $(BIN_DIR)/line2d.o $(BIN_DIR)/line3d.o
+OBJECTS = $(BIN_DIR)/point2d.o $(BIN_DIR)/point3d.o $(BIN_DIR)/line2d.o $(BIN_DIR)/line3d.o $(BIN_DIR)/circle.o
 APP_OBJECTS = $(APP_BIN)/main.o $(APP_BIN)/inputHandler.o
 
 # Ensure directories exist
@@ -33,6 +33,9 @@ $(BIN_DIR)/line2d.o: $(SRC_DIR)/entities/2d/line2d.cc
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 $(BIN_DIR)/line3d.o: $(SRC_DIR)/entities/3d/line3d.cc
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BIN_DIR)/circle.o: $(SRC_DIR)/shapes/curves/2d/circle.cc
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 $(APP_BIN)/inputHandler.o: $(APP_SRC)/utils/inputHandler/inputHandler.cc
@@ -57,4 +60,6 @@ run: $(APP_BIN)/app
 # Clean up object files, shared library, and binaries
 .PHONY: clean
 clean:
-	rm -f $(BIN_DIR)/*.o $(LIB_DIR)/libgeometry.so $(APP_BIN)/*.o $(APP_BIN)/app
+	rm -rf $(BIN_DIR) $(LIB_DIR) $(APP_BIN)
+	mkdir -p $(BIN_DIR) $(LIB_DIR) $(APP_BIN)
+

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "definitions.h"
+#include "circle.h"
 
 class InputHandler {
 public:
@@ -17,8 +18,11 @@ public:
     static ThreePointsArray3D getInput(const ThreePointsArray3D&);
 
     // Input for dynamic-sized arrays
-    static PointArray2D getInput(const PointArray2D&, int numPoints);
-    static PointArray3D getInput(const PointArray3D&, int numPoints);
+    static PointVector2D getInput(const PointVector2D&, int numPoints);
+    static PointVector3D getInput(const PointVector3D&, int numPoints);
+
+    //circle
+    static Circle getInput(Circle);
 };
 
 #endif  

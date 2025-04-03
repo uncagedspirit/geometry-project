@@ -18,5 +18,9 @@ int main() {
     // line3D.setEnd(points3D[1]);
     // std::cout << "3D Line Created!\n";
 
+    std::cout << "Testing Circle Input\n";
+    Circle circle = InputHandler::getInput(Circle());
+    std::cout << "Circle Created!\n";
+
     return 0;
 }

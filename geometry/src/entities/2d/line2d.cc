@@ -13,11 +13,17 @@ Point2D Line2D::getEnd() const { return end; }
 void Line2D::setStart(const Point2D& start) { this->start = start; }
 void Line2D::setEnd(const Point2D& end) { this->end = end; }
 
+
+//methods
+
+//save points function is implemented here itself to preserve encapsulation property for the shape
+//so instead of creating a general interface to save points of eac hshape to a file,
+//this approach is better since each shape anyways have unique logic for points
+
 // Save points of the line to a file
 void Line2D::savePointsToFile(const std::string& filename, bool appendMode) {
     std::ofstream file;
 
-    // Open the file in append mode if append is true, otherwise overwrite the file
     if (appendMode) file.open(filename, std::ios::app);
     else file.open(filename, std::ios::out);
 
@@ -27,12 +33,12 @@ void Line2D::savePointsToFile(const std::string& filename, bool appendMode) {
         return;
     }
 
-    // Write points to the file
+    // Write points to the file 
     file << start.getX() << " " << start.getY() << "\n";
     file << end.getX() << " " << end.getY() << "\n\n";
 
     file.close();
 }
 
-//call:     line2.savePointsToFile("lines.dat", true); 
+//call to this:     line2.savePointsToFile("lines.dat", true); 
 // Save points of line 2 to the same file (append)
