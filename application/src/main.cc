@@ -37,9 +37,14 @@ int main() {
     // std::cout << "Square Created!\n";
 
 //cuboid input test
-    std::cout << "Testing Cuboid Input\n";  
-    Cuboid cuboid = InputHandler::getInput(Cuboid());
-    std::cout << "Cuboid Created!\n";
+    // std::cout << "Testing Cuboid Input\n";  
+    // Cuboid cuboid = InputHandler::getInput(Cuboid());
+    // std::cout << "Cuboid Created!\n";
+
+// cube input test
+    std::cout << "Testing Cube Input\n";
+    Cube cube = InputHandler::getInput(Cube());
+    std::cout << "Cube Created!\n";
 
     return 0;
 }

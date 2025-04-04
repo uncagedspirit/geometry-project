@@ -7,6 +7,7 @@
 #include "rectangle.h"
 #include "square.h"
 #include "cuboid.h"
+#include "cube.h"
 
 class InputHandler {
 public:
@@ -31,6 +32,7 @@ public:
 
     //3d shapes
     static Cuboid getInput(Cuboid);
+    static Cube getInput(Cube);
 
 };
 

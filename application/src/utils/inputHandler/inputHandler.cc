@@ -125,6 +125,17 @@ Cuboid InputHandler::getInput(Cuboid) {
     return Cuboid(bottomLeftFront, length, width, height);
 }
 
+Cube InputHandler::getInput(Cube) {
+    double side;
+    std::cout << "Enter bottom-left-front corner coordinates: ";
+    Point3D bottomLeftFront = getInput(Point3D());
+
+    std::cout << "Enter side length: ";
+    std::cin >> side;
+
+    return Cube(bottomLeftFront, side);
+}
+
 
 //cube input
 
