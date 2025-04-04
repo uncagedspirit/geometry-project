@@ -42,9 +42,15 @@ int main() {
     // std::cout << "Cuboid Created!\n";
 
 // cube input test
-    std::cout << "Testing Cube Input\n";
-    Cube cube = InputHandler::getInput(Cube());
-    std::cout << "Cube Created!\n";
+    // std::cout << "Testing Cube Input\n";
+    // Cube cube = InputHandler::getInput(Cube());
+    // std::cout << "Cube Created!\n";
+
+// cylinder input test
+    std::cout << "Testing Cylinder Input\n";
+    Cylinder cylinder = InputHandler::getInput(Cylinder());
+    std::cout << "Cylinder Created!\n";
+
 
     return 0;
 }
