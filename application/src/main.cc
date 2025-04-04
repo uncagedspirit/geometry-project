@@ -47,9 +47,15 @@ int main() {
     // std::cout << "Cube Created!\n";
 
 // cylinder input test
-    std::cout << "Testing Cylinder Input\n";
-    Cylinder cylinder = InputHandler::getInput(Cylinder());
-    std::cout << "Cylinder Created!\n";
+    // std::cout << "Testing Cylinder Input\n";
+    // Cylinder cylinder = InputHandler::getInput(Cylinder());
+    // std::cout << "Cylinder Created!\n";
+
+// sphere input test
+    std::cout << "Testing Sphere Input\n";
+    Sphere sphere = InputHandler::getInput(Sphere());
+    std::cout << "Sphere Created!\n";
+
 
 
     return 0;

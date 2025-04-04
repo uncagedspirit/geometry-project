@@ -148,6 +148,18 @@ Cylinder InputHandler::getInput(Cylinder) {
     return Cylinder(baseCenter, radius, height);
 }
 
+Sphere InputHandler::getInput(Sphere) {
+    double radius;
+
+    std::cout << "Enter center coordinates: ";
+    Point3D center = getInput(Point3D());
+
+    std::cout << "Enter radius: ";
+    std::cin >> radius;
+
+    return Sphere(center, radius);
+}
+
 
 //cube input
 

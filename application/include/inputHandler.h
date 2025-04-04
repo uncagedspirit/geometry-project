@@ -9,6 +9,7 @@
 #include "cuboid.h"
 #include "cube.h"
 #include "cylinder.h"
+#include "sphere.h"
 
 class InputHandler {
 public:
@@ -35,6 +36,8 @@ public:
     static Cuboid getInput(Cuboid);
     static Cube getInput(Cube);
     static Cylinder getInput(Cylinder);
+    static Sphere getInput(Sphere);
+
 
 
 };
