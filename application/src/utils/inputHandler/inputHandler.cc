@@ -100,6 +100,7 @@ Rectangle InputHandler::getInput(Rectangle) {
     return Rectangle(bottomLeft, width, height);
 }
 
+// square input
 Square InputHandler::getInput(Square) {
     std::cout << "Enter bottom-left corner coordinates: ";
     Point2D bottomLeft = getInput(Point2D());
@@ -110,6 +111,24 @@ Square InputHandler::getInput(Square) {
 
     return Square(bottomLeft, side);
 }
+
+// Cuboid input
+Cuboid InputHandler::getInput(Cuboid) {
+    double length, width, height;
+
+    std::cout << "Enter bottom-left-front corner coordinates: ";
+    Point3D bottomLeftFront = getInput(Point3D());
+
+    std::cout << "Enter length, width, and height: ";
+    std::cin >> length >> width >> height;
+
+    return Cuboid(bottomLeftFront, length, width, height);
+}
+
+
+//cube input
+
+
 
 
 

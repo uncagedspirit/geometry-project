@@ -5,6 +5,7 @@ BIN_DIR = geometry/bin
 LIB_DIR = geometry/lib
 APP_SRC = application/src
 APP_BIN = application/bin
+APP_LIB = application/lib
 APP_INCLUDE_DIR = application/include
 
 # Compiler and flags
@@ -15,7 +16,7 @@ LIBRARY_PATH = -L$(LIB_DIR) -lgeometry
 
 # Object files
 OBJECTS = $(BIN_DIR)/point2d.o $(BIN_DIR)/point3d.o $(BIN_DIR)/line2d.o $(BIN_DIR)/line3d.o $(BIN_DIR)/circle.o \
-		  $(BIN_DIR)/rectangle.o $(BIN_DIR)/square.o
+		  $(BIN_DIR)/rectangle.o $(BIN_DIR)/square.o $(BIN_DIR)/cuboid.o
 APP_OBJECTS = $(APP_BIN)/main.o $(APP_BIN)/inputHandler.o
 
 # Ensure directories exist
@@ -45,6 +46,9 @@ $(BIN_DIR)/rectangle.o: $(SRC_DIR)/shapes/polygons/2d/rectangle.cc
 $(BIN_DIR)/square.o: $(SRC_DIR)/shapes/polygons/2d/square.cc
 	$(CXX) $(CXXFLAGS) $< -o $@
 
+$(BIN_DIR)/cuboid.o: $(SRC_DIR)/shapes/polygons/3d/cuboid.cc
+	$(CXX) $(CXXFLAGS) $< -o $@
+
 $(APP_BIN)/inputHandler.o: $(APP_SRC)/utils/inputHandler/inputHandler.cc
 	$(CXX) $(CXXFLAGS) $< -o $@
 
@@ -67,6 +71,6 @@ run: $(APP_BIN)/app
 # Clean up object files, shared library, and binaries
 .PHONY: clean
 clean:
-	rm -rf $(BIN_DIR) $(LIB_DIR) $(APP_BIN)
-	mkdir -p $(BIN_DIR) $(LIB_DIR) $(APP_BIN)
+	rm -rf $(BIN_DIR) $(LIB_DIR) $(APP_BIN) $(APP_LIB)
+	mkdir -p $(BIN_DIR) $(LIB_DIR) $(APP_BIN) $(APP_LIB)
 

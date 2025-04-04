@@ -32,9 +32,14 @@ int main() {
 
 
 //square input test
-    std::cout << "Testing Square Input\n";
-    Square square = InputHandler::getInput(Square());
-    std::cout << "Square Created!\n";
+    // std::cout << "Testing Square Input\n";
+    // Square square = InputHandler::getInput(Square());
+    // std::cout << "Square Created!\n";
+
+//cuboid input test
+    std::cout << "Testing Cuboid Input\n";  
+    Cuboid cuboid = InputHandler::getInput(Cuboid());
+    std::cout << "Cuboid Created!\n";
 
     return 0;
 }
