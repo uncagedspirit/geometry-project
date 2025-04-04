@@ -3,13 +3,7 @@
 
 #include <iostream>
 #include "definitions.h"
-#include "circle.h"
-#include "rectangle.h"
-#include "square.h"
-#include "cuboid.h"
-#include "cube.h"
-#include "cylinder.h"
-#include "sphere.h"
+#include "geometryHeaders.h"
 
 class InputHandler {
 public:

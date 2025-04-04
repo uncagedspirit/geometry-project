@@ -6,6 +6,7 @@ LIB_DIR = geometry/lib
 APP_SRC = application/src
 APP_BIN = application/bin
 APP_LIB = application/lib
+
 APP_INCLUDE_DIR = application/include
 
 # Compiler and flags
