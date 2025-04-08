@@ -24,3 +24,16 @@ void Cylinder::savePointsToFile(const std::string& filename, bool append) {
 
     file.close();
 }
+
+
+std::vector<Point3D> Cylinder::getPoints() const {
+    return { baseCenter };
+}
+
+std::vector<double> Cylinder::getParams() const {
+    return { radius, height };
+}
+
+std::string Cylinder::getType() const {
+    return "Cylinder";
+}

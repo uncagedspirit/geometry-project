@@ -4,6 +4,7 @@
 #include <vector>
 #include <array>
 
+
 #include "point2d.h"
 #include "point3d.h"
 
@@ -20,5 +21,8 @@ typedef std::vector<Point2D> PointVector2D;
 
 //dynamic sized points vector for 3d
 typedef std::vector<Point3D> PointVector3D;
+
+//geometry definitions
+#define PI 3.14159265358979323846
 
 #endif

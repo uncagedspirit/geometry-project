@@ -2,12 +2,12 @@
 #include <vector>
 #include <fstream>
 
-Rectangle::Rectangle(const Point2D& bottomLeft, double width, double height)
-    : bottomLeft(bottomLeft), width(width), height(height) {}
+Rectangle::Rectangle(const Point2D& bottomLeft, double length, double widthght)
+    : bottomLeft(bottomLeft), length(length), width(width) {}
 
 void Rectangle::setBottomLeft(const Point2D& bottomLeft) { this->bottomLeft = bottomLeft; }
-void Rectangle::setWidth(double width) { this->width = width; }
-void Rectangle::setHeight(double height) { this->height = height; }
+void Rectangle::setWidth(double length) { this->length = length; }
+void Rectangle::setHeight(double width) { this->width = width; }
 
 //saving the points of the rectangle to a file for plotting
 
@@ -17,9 +17,9 @@ void Rectangle::savePointsToFile(const std::string& filename, bool append) {
 
     std::vector<Point2D> points = {
         bottomLeft,
-        {bottomLeft.getX() + width, bottomLeft.getY()},
-        {bottomLeft.getX() + width, bottomLeft.getY() + height},
-        {bottomLeft.getX(), bottomLeft.getY() + height},
+        {bottomLeft.getX() + length, bottomLeft.getY()},
+        {bottomLeft.getX() + length, bottomLeft.getY() + width},
+        {bottomLeft.getX(), bottomLeft.getY() + width},
         bottomLeft
     };
 
@@ -28,4 +28,17 @@ void Rectangle::savePointsToFile(const std::string& filename, bool append) {
     }
     file << "\n\n";
     file.close();
+}
+
+
+std::vector<Point2D> Rectangle::getPoints() const {
+    return { bottomLeft };
+}
+
+std::vector<double> Rectangle::getParams() const {
+    return { length, width };
+}
+
+std::string Rectangle::getType() const {
+    return "Rectangle";
 }

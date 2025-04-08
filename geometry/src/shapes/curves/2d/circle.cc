@@ -2,7 +2,7 @@
 #include <fstream>
 #include <cmath>
 
-#define PI 3.141592653589793
+#include "definitions.h"
 
 Circle::Circle(const Point2D& center, double radius) : center(center), radius(radius) {}
 
@@ -11,6 +11,7 @@ double Circle::getRadius() const { return radius; }
 
 void Circle::setCenter(const Point2D& center) { this->center = center; }
 void Circle::setRadius(double radius) { this->radius = radius; }
+
 
 void Circle::savePointsToFile(const std::string& filename, bool append) {
     std::ofstream file(filename, append ? std::ios::app : std::ios::out);
@@ -24,4 +25,17 @@ void Circle::savePointsToFile(const std::string& filename, bool append) {
         file << x << " " << y << "\n";
     }
     file.close();
+}
+
+
+std::vector<Point2D> Circle::getPoints() const {
+    return { center };
+}
+
+std::vector<double> Circle::getParams() const {
+    return { radius };
+}
+
+std::string Circle::getType() const {
+    return "Circle";
 }

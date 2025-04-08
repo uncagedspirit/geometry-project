@@ -2,9 +2,9 @@
 #include <fstream>
 #include <vector>
 
-
 Cuboid::Cuboid(const Point3D& bottomLeftFront, double length, double width, double height)
     : bottomLeftFront(bottomLeftFront), length(length), width(width), height(height) {}
+    
 
 void Cuboid::savePointsToFile(const std::string& filename, bool append) {
     std::ofstream file(filename, append ? std::ios::app : std::ios::out);
@@ -28,4 +28,17 @@ void Cuboid::savePointsToFile(const std::string& filename, bool append) {
 
     file << "\n\n";
     file.close();
+}
+
+
+std::vector<Point3D> Cuboid::getPoints() const {
+    return { bottomLeftFront };
+}
+
+std::vector<double> Cuboid::getParams() const {
+    return { length, width, height };
+}
+
+std::string Cuboid::getType() const {
+    return "Cuboid";
 }
