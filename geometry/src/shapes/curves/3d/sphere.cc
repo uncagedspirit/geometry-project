@@ -27,7 +27,7 @@ void Sphere::savePointsToFile(const std::string& filename, bool append) {
     file.close();
 }
 
-std::vector<Point3D> Sphere::getPoints() const {
+std::vector<Point3D> Sphere::getPoints3D() const {
     return { center };
 }
 

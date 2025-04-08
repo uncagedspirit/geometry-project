@@ -11,13 +11,15 @@ APP_INCLUDE_DIR = application/include
 
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -c -fPIC -I$(INCLUDE_DIR) -I$(APP_INCLUDE_DIR)
+CXXFLAGS = -c -fPIC -I$(INCLUDE_DIR) -I$(INCLUDE_DIR)/transformations -I$(APP_INCLUDE_DIR)
 LDFLAGS = -shared -o $(LIB_DIR)/libgeometry.so
 LIBRARY_PATH = -L$(LIB_DIR) -lgeometry
 
 # Object files
 OBJECTS = $(BIN_DIR)/point2d.o $(BIN_DIR)/point3d.o $(BIN_DIR)/line2d.o $(BIN_DIR)/line3d.o $(BIN_DIR)/circle.o \
-		  $(BIN_DIR)/rectangle.o $(BIN_DIR)/square.o $(BIN_DIR)/cuboid.o $(BIN_DIR)/cube.o $(BIN_DIR)/cylinder.o $(BIN_DIR)/sphere.o
+		  $(BIN_DIR)/rectangle.o $(BIN_DIR)/square.o $(BIN_DIR)/cuboid.o $(BIN_DIR)/cube.o $(BIN_DIR)/cylinder.o $(BIN_DIR)/sphere.o \
+          $(BIN_DIR)/transformer.o $(BIN_DIR)/scale.o $(BIN_DIR)/rotate.o $(BIN_DIR)/translate.o
+
 APP_OBJECTS = $(APP_BIN)/main.o $(APP_BIN)/inputHandler.o 
 
 # Ensure directories exist
@@ -59,11 +61,25 @@ $(BIN_DIR)/cylinder.o: $(SRC_DIR)/shapes/curves/3d/cylinder.cc
 $(BIN_DIR)/sphere.o: $(SRC_DIR)/shapes/curves/3d/sphere.cc
 	$(CXX) $(CXXFLAGS) $< -o $@
 
+$(BIN_DIR)/transformer.o: $(SRC_DIR)/utils/transformations/transformer.cc
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+
 $(APP_BIN)/inputHandler.o: $(APP_SRC)/utils/inputHandler/inputHandler.cc
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 $(APP_BIN)/main.o: $(APP_SRC)/main.cc
 	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BIN_DIR)/scale.o: $(SRC_DIR)/utils/transformations/scale.cc
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BIN_DIR)/rotate.o: $(SRC_DIR)/utils/transformations/rotate.cc
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+$(BIN_DIR)/translate.o: $(SRC_DIR)/utils/transformations/translate.cc
+	$(CXX) $(CXXFLAGS) $< -o $@
+
 
 # Link object files into shared library
 $(LIB_DIR)/libgeometry.so: $(OBJECTS)

@@ -31,7 +31,7 @@ void Cuboid::savePointsToFile(const std::string& filename, bool append) {
 }
 
 
-std::vector<Point3D> Cuboid::getPoints() const {
+std::vector<Point3D> Cuboid::getPoints3D() const {
     return { bottomLeftFront };
 }
 

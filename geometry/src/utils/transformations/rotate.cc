@@ -18,3 +18,17 @@ this function doing saving and all.
 we have applied transformation created shape, the receiver will see what he wants to do with the object of the shape
 
 */
+
+//dummy code for testing change later
+
+#include "transformer.h"
+
+std::vector<Point2D> Transformer::rotate(std::vector<Point2D> points, char axis, double angle) {
+    std::cout << "[Dummy] Rotating 2D around " << axis << "-axis by " << angle << " degrees.\n";
+    return points;
+}
+
+std::vector<Point3D> Transformer::rotate(std::vector<Point3D> points, char axis, double angle) {
+    std::cout << "[Dummy] Rotating 3D around " << axis << "-axis by " << angle << " degrees.\n";
+    return points;
+}

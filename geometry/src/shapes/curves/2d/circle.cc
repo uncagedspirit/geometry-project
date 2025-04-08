@@ -28,7 +28,7 @@ void Circle::savePointsToFile(const std::string& filename, bool append) {
 }
 
 
-std::vector<Point2D> Circle::getPoints() const {
+std::vector<Point2D> Circle::getPoints2D() const {
     return { center };
 }
 

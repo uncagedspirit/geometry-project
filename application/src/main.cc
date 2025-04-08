@@ -1,36 +1,42 @@
 #include <iostream>
 #include "geometryHeaders.h"
 #include "inputHandler.h"
+#include "transformer.h"
+
+
+#include <memory>  // Add this at the top
 
 void execute(int n){
+    std::unique_ptr<Shape> shape;
+
     switch (n){
         case 1: {
-            Circle circle = InputHandler::getInput(Circle());
+            shape = std::make_unique<Circle>(InputHandler::getInput(Circle()));
             break;
         }
         case 2: {
-            Rectangle rectangle = InputHandler::getInput(Rectangle());
+            shape = std::make_unique<Rectangle>(InputHandler::getInput(Rectangle()));
             break;
         }   
         case 3: {
-            Square square = InputHandler::getInput(Square());
+            shape = std::make_unique<Square>(InputHandler::getInput(Square()));
             break;
         }
         case 4: {
-            Cuboid cuboid = InputHandler::getInput(Cuboid());
+            shape = std::make_unique<Cuboid>(InputHandler::getInput(Cuboid()));
             break;
         }
         case 5: {
-            Cube cube = InputHandler::getInput(Cube());
+            shape = std::make_unique<Cube>(InputHandler::getInput(Cube()));
             break;
         }
         case 6: {
-            Sphere sphere = InputHandler::getInput(Sphere());
+            shape = std::make_unique<Sphere>(InputHandler::getInput(Sphere()));
             break;
         }
         default: {
             std::cout << "Invalid choice. Please try again." << std::endl;
-            break;
+            return;
         }
     }
 
@@ -38,9 +44,15 @@ void execute(int n){
     char transformChoice;
     std::cin >> transformChoice;
     if (transformChoice == 'y' || transformChoice == 'Y') {
-        std::cout << "Transforming the shape..." << std::endl;
+        if (auto* s2d = dynamic_cast<Shape2D*>(shape.get())) {
+            Transformer::transform(s2d->getPoints2D(), shape->getParams(), shape->getType());
+        } else if (auto* s3d = dynamic_cast<Shape3D*>(shape.get())) {
+            Transformer::transform(s3d->getPoints3D(), shape->getParams(), shape->getType());
+        }
+        std::cout << "Transformation applied." << std::endl;
     }
 }
+
 
 // Display menu
 int displayMenu() {

@@ -4,7 +4,7 @@
 #include "shape.h"
 #include "point3d.h"
 
-class Cylinder : public Shape {
+class Cylinder : public Shape3D {
 private:
     Point3D baseCenter;
     double radius, height;
@@ -15,7 +15,7 @@ public:
 
     void savePointsToFile(const std::string& filename, bool append = false) override;
 
-    std::vector<Point3D> getPoints() const override;
+    std::vector<Point3D> getPoints3D() const override;
     std::vector<double> getParams() const override;
     std::string getType() const override;
 };

@@ -24,7 +24,7 @@ public:
     void savePointsToFile(const std::string& filename, bool append = false) override;
 
 
-    std::vector<Point2D> getPoints() const override;
+    std::vector<Point2D> getPoints2D() const override;
     std::vector<double> getParams() const override;
     std::string getType() const override;
 };

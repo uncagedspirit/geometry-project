@@ -5,8 +5,8 @@ void Cube::savePointsToFile(const std::string& filename, bool append) {
 }
 
 
-std::vector<Point3D> Cube::getPoints() const {
-    return { getPoints() };  
+std::vector<Point3D> Cube::getPoints3D() const {
+    return { getPoints3D() };  
 }
 
 std::vector<double> Cube::getParams() const {

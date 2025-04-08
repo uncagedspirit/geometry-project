@@ -26,7 +26,7 @@ void Cylinder::savePointsToFile(const std::string& filename, bool append) {
 }
 
 
-std::vector<Point3D> Cylinder::getPoints() const {
+std::vector<Point3D> Cylinder::getPoints3D() const {
     return { baseCenter };
 }
 

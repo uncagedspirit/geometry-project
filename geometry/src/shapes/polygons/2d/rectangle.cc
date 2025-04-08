@@ -2,12 +2,12 @@
 #include <vector>
 #include <fstream>
 
-Rectangle::Rectangle(const Point2D& bottomLeft, double length, double widthght)
+Rectangle::Rectangle(const Point2D& bottomLeft, double length, double width)
     : bottomLeft(bottomLeft), length(length), width(width) {}
 
 void Rectangle::setBottomLeft(const Point2D& bottomLeft) { this->bottomLeft = bottomLeft; }
-void Rectangle::setWidth(double length) { this->length = length; }
-void Rectangle::setHeight(double width) { this->width = width; }
+void Rectangle::setLength(double length) { this->length = length; }
+void Rectangle::setWidth(double width) { this->width = width; }
 
 //saving the points of the rectangle to a file for plotting
 
@@ -31,7 +31,7 @@ void Rectangle::savePointsToFile(const std::string& filename, bool append) {
 }
 
 
-std::vector<Point2D> Rectangle::getPoints() const {
+std::vector<Point2D> Rectangle::getPoints2D() const {
     return { bottomLeft };
 }
 

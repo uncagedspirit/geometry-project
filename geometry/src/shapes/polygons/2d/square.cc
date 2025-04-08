@@ -4,14 +4,14 @@ Square::Square(const Point2D& bottomLeft, double side)
     : Rectangle(bottomLeft, side, side) {}
 
 
-std::vector<Point2D> Cube::getPoints() const {
-    return { getPoints() };  
+std::vector<Point2D> Square::getPoints2D() const {
+    return { getPoints2D()[0] };  
 }
 
-std::vector<double> Cube::getParams() const {
+std::vector<double> Square::getParams() const {
     return { getParams()[0] };  
 }
 
-std::string Cube::getType() const {
-    return "Cube";
+std::string Square::getType() const {
+    return "Square";
 }

@@ -19,12 +19,12 @@ public:
 
 class Shape2D : public Shape {
 public:
-    virtual std::vector<Point2D> getPoints() const = 0;
+    virtual std::vector<Point2D> getPoints2D() const = 0;
 };
 
 class Shape3D : public Shape {
 public:
-    virtual std::vector<Point3D> getPoints() const = 0;
+    virtual std::vector<Point3D> getPoints3D() const = 0;
 };
 
 #endif
