@@ -11,7 +11,7 @@ APP_INCLUDE_DIR = application/include
 
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -c -fPIC -I$(INCLUDE_DIR) -I$(INCLUDE_DIR)/transformations -I$(APP_INCLUDE_DIR)
+CXXFLAGS = -c -fPIC -I$(INCLUDE_DIR)  -I$(APP_INCLUDE_DIR)
 LDFLAGS = -shared -o $(LIB_DIR)/libgeometry.so
 LIBRARY_PATH = -L$(LIB_DIR) -lgeometry
 

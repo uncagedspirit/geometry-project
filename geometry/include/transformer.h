@@ -6,6 +6,11 @@
 #include "point2d.h"
 #include "point3d.h"
 
+//transformations
+#include "scale.hpp"
+#include "rotate.hpp"
+#include "translate.hpp"
+
 class Transformer {
 public:
     static void transform(std::vector<Point2D> points, std::vector<double> params, std::string shapeType);
