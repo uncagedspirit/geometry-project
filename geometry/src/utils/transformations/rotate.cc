@@ -22,6 +22,7 @@ we have applied transformation created shape, the receiver will see what he want
 //dummy code for testing change later
 
 #include "transformer.h"
+#include <iostream>
 
 std::vector<Point2D> Transformer::rotate(std::vector<Point2D> points, char axis, double angle) {
     std::cout << "[Dummy] Rotating 2D around " << axis << "-axis by " << angle << " degrees.\n";

@@ -7,9 +7,9 @@
 #include "point3d.h"
 
 //transformations
-#include "scale.hpp"
-#include "rotate.hpp"
-#include "translate.hpp"
+#include "scale.h"
+#include "rotate.h"
+#include "translate.h"
 
 class Transformer {
 public:

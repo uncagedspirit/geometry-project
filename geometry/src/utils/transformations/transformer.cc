@@ -72,8 +72,8 @@ void Transformer::transform(std::vector<Point3D> points, std::vector<double> par
 }
 
 // Dummy function stubs
-std::vector<Point2D> Transformer::rotate(std::vector<Point2D>, char, double) { return {}; }
-std::vector<Point2D> Transformer::translate(std::vector<Point2D>, double, double) { return {}; }
-std::vector<double> Transformer::scale(std::vector<double>, double) { return {}; }
-std::vector<Point3D> Transformer::rotate(std::vector<Point3D>, char, double) { return {}; }
-std::vector<Point3D> Transformer::translate(std::vector<Point3D>, double, double, double) { return {}; }
+// std::vector<Point2D> Transformer::rotate(std::vector<Point2D>, char, double) { return {}; }
+// std::vector<Point2D> Transformer::translate(std::vector<Point2D>, double, double) { return {}; }
+// std::vector<double> Transformer::scale(std::vector<double>, double) { return {}; }
+// std::vector<Point3D> Transformer::rotate(std::vector<Point3D>, char, double) { return {}; }
+// std::vector<Point3D> Transformer::translate(std::vector<Point3D>, double, double, double) { return {}; }

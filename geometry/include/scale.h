@@ -3,6 +3,6 @@
 
 #include <vector>
 
-std::vector<double> scaleParams(std::vector<double> params, double factor);
+std::vector<double> scale(std::vector<double> params, double factor);
 
 #endif

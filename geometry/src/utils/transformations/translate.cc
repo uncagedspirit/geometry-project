@@ -8,7 +8,7 @@ return a new shape to the savepointstofile function of the shape
 
 //dummy code for testing change later
 
-
+#include <iostream>
 #include "transformer.h"
 
 std::vector<Point2D> Transformer::translate(std::vector<Point2D> points, double dx, double dy) {
