@@ -25,4 +25,6 @@ typedef std::vector<Point3D> PointVector3D;
 //geometry definitions
 #define PI 3.14159265358979323846
 
+#define DEG2RAD(angleDegrees) ((angleDegrees) * M_PI / 180.0)
+
 #endif
