@@ -1,7 +1,26 @@
 #include "transformer.h"
 #include <iostream>
+#include <map>
+#include <functional>
+#include "circle.h"
+#include "rectangle.h"
+#include "sphere.h"
+#include "cube.h"
 
-void Transformer::transform(std::vector<Point2D> points, std::vector<double> params, std::string shapeType) {
+static std::map<std::string, std::function<Shape*(const std::vector<Point2D>&, const std::vector<double>&)>> shape2DCreators = {
+    { "Circle", [](const std::vector<Point2D>& pts, const std::vector<double>& p) { return new Circle(pts[0], p[0]); } },
+    { "Rectangle", [](const std::vector<Point2D>& pts, const std::vector<double>& p) { return new Rectangle(pts[0], p[0], p[1]); } }
+};
+
+static std::map<std::string, std::function<Shape*(const std::vector<Point3D>&, const std::vector<double>&)>> shape3DCreators = {
+    { "Sphere", [](const std::vector<Point3D>& pts, const std::vector<double>& p) { return new Sphere(pts[0], p[0]); } },
+    { "Cube", [](const std::vector<Point3D>& pts, const std::vector<double>& p) { return new Cube(pts[0], p[0]); } }
+};
+
+Shape* Transformer::transform(std::vector<Point2D> points, std::vector<double> params, std::string shapeType) {
+    std::vector<Point2D> updatedPoints = points;
+    std::vector<double> updatedParams = params;
+
     std::cout << "Select 2D transformation (1: Scale, 2: Rotate, 3: Translate): ";
     int choice;
     std::cin >> choice;
@@ -11,7 +30,7 @@ void Transformer::transform(std::vector<Point2D> points, std::vector<double> par
             double factor;
             std::cout << "Enter scaling factor: ";
             std::cin >> factor;
-            std::vector<double> newParams = scale(params, factor);
+            updatedParams = scale(params, factor);
             break;
         }
         case 2: {
@@ -21,22 +40,27 @@ void Transformer::transform(std::vector<Point2D> points, std::vector<double> par
             std::cin >> axis;
             std::cout << "Enter angle in degrees: ";
             std::cin >> angle;
-            std::vector<Point2D> newPoints = rotate(points, axis, angle);
+            updatedPoints = rotate(points, axis, angle);
             break;
         }
         case 3: {
             double dx, dy;
             std::cout << "Enter translation (dx dy): ";
             std::cin >> dx >> dy;
-            std::vector<Point2D> newPoints = translate(points, dx, dy);
+            updatedPoints = translate(points, dx, dy);
             break;
         }
         default:
             std::cout << "Invalid transformation type.\n";
     }
+
+    return createShape2D(shapeType, updatedPoints, updatedParams);
 }
 
-void Transformer::transform(std::vector<Point3D> points, std::vector<double> params, std::string shapeType) {
+Shape* Transformer::transform(std::vector<Point3D> points, std::vector<double> params, std::string shapeType) {
+    std::vector<Point3D> updatedPoints = points;
+    std::vector<double> updatedParams = params;
+
     std::cout << "Select 3D transformation (1: Scale, 2: Rotate, 3: Translate): ";
     int choice;
     std::cin >> choice;
@@ -46,7 +70,7 @@ void Transformer::transform(std::vector<Point3D> points, std::vector<double> par
             double factor;
             std::cout << "Enter scaling factor: ";
             std::cin >> factor;
-            std::vector<double> newParams = scale(params, factor);
+            updatedParams = scale(params, factor);
             break;
         }
         case 2: {
@@ -56,24 +80,29 @@ void Transformer::transform(std::vector<Point3D> points, std::vector<double> par
             std::cin >> axis;
             std::cout << "Enter angle in degrees: ";
             std::cin >> angle;
-            std::vector<Point3D> newPoints = rotate(points, axis, angle);
+            updatedPoints = rotate(points, axis, angle);
             break;
         }
         case 3: {
             double dx, dy, dz;
             std::cout << "Enter translation (dx dy dz): ";
             std::cin >> dx >> dy >> dz;
-            std::vector<Point3D> newPoints = translate(points, dx, dy, dz);
+            updatedPoints = translate(points, dx, dy, dz);
             break;
         }
         default:
             std::cout << "Invalid transformation type.\n";
     }
+
+    return createShape3D(shapeType, updatedPoints, updatedParams);
 }
 
-// Dummy function stubs
-// std::vector<Point2D> Transformer::rotate(std::vector<Point2D>, char, double) { return {}; }
-// std::vector<Point2D> Transformer::translate(std::vector<Point2D>, double, double) { return {}; }
-// std::vector<double> Transformer::scale(std::vector<double>, double) { return {}; }
-// std::vector<Point3D> Transformer::rotate(std::vector<Point3D>, char, double) { return {}; }
-// std::vector<Point3D> Transformer::translate(std::vector<Point3D>, double, double, double) { return {}; }
+Shape* Transformer::createShape2D(const std::string& type, const std::vector<Point2D>& points, const std::vector<double>& params) {
+    auto it = shape2DCreators.find(type);
+    return (it != shape2DCreators.end()) ? it->second(points, params) : nullptr;
+}
+
+Shape* Transformer::createShape3D(const std::string& type, const std::vector<Point3D>& points, const std::vector<double>& params) {
+    auto it = shape3DCreators.find(type);
+    return (it != shape3DCreators.end()) ? it->second(points, params) : nullptr;
+}
